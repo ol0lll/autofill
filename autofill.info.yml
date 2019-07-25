@@ -1,0 +1,4 @@
+name: 'Autofill'
+type: module
+description: 'A field can automatically be autofilled while typing into another one.'
+core: 8.x
