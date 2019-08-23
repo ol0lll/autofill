@@ -14,8 +14,8 @@
           // Only process if source field and target field are present.
           if ($source_field.length > 0 && $target_field.length > 0) {
             // Automatically fill target field with value of the source
-            // field, when it's empty.
-            if (!$target_field.val()) {
+            // field, when it's empty or values are identical.
+            if (!$target_field.val() || $source_field.val() === $target_field.val()) {
               var unique_process_name = 'autofill_' + target_field;
               $source_field.once(unique_process_name).on('input', function () {
                 // Autofill the target field only when it was not manipulated
