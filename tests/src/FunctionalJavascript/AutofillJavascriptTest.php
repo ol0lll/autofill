@@ -56,10 +56,10 @@ class AutofillJavascriptTest extends WebDriverTestBase {
     $this->getSession()->getPage()->findButton('Save')->click();
 
     // Open the created node again. When changing the title, the autofill
-    // field should remain unchanged, because it's already filled.
+    // field should change since values are identical.
     $this->drupalGet('node/1/edit');
     $this->getSession()->getPage()->fillField('title[0][value]', 'My adjusted test title');
-    $this->assertSession()->fieldValueEquals('field_autofill[0][value]', 'My test title');
+    $this->assertSession()->fieldValueEquals('field_autofill[0][value]', 'My adjusted test title');
 
     // If the autofill field was manipulated once it should not be autofilled
     // anymore. Manipulation is done by pressing backspace in the textfield.
